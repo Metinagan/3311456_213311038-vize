@@ -104,7 +104,7 @@ class _asusState extends State<asus> {
                         SizedBox(height: 20),
                         Text("Ekran Özellikleri",style: TextStyle(fontSize: 20),),
                         SizedBox(height: 20),
-                        Text("Ekran boyutu 6.1 inç",style: TextStyle(fontSize: 15),),
+                        Text("Ekran boyutu 24 inç",style: TextStyle(fontSize: 15),),
                         SizedBox(height: 20),
                         Text("Ekran yenileme hızı 120 Hz",style: TextStyle(fontSize: 15),),
                         SizedBox(height: 20),
