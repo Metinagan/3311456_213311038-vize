@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'LoginPageState.dart';
-import 'mainmen.dart';
+import 'package:shopping/Pages/LoginPageState.dart';
+import 'package:shopping/Pages/mainmen.dart';
 
+// ignore: camel_case_types
 class account extends StatefulWidget {
   const account({Key? key}) : super(key: key);
 
@@ -9,6 +10,7 @@ class account extends StatefulWidget {
   State<account> createState() => _accountState();
 }
 
+// ignore: camel_case_types
 class _accountState extends State<account> {
   @override
   Widget build(BuildContext context) {
@@ -43,14 +45,14 @@ class _accountState extends State<account> {
                   children: [
                     Container(
                       decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
-                      child: Text("Metin Ağan",style: TextStyle(fontSize: 40,color: Colors.white),),
+                      child: const Text("Metin Ağan",style: TextStyle(fontSize: 40,color: Colors.white),),
                     ),
                   ],
                 )
               ],
             ),
             const SizedBox(height: 10),
-            Text("_____________________________________________________________",style: TextStyle(color: Colors.white),),
+            const Text("_____________________________________________________________",style: TextStyle(color: Colors.white),),
             const SizedBox(height: 70),
             Row(
               children: [
@@ -61,7 +63,7 @@ class _accountState extends State<account> {
               ],
             ),
             const SizedBox(height: 10),
-            Text("_____________________________________________________________",style: TextStyle(color: Colors.white),),
+            const Text("_____________________________________________________________",style: TextStyle(color: Colors.white),),
             const SizedBox(height: 15),
             Row(
               children: [
@@ -73,7 +75,7 @@ class _accountState extends State<account> {
 
             ),
             const SizedBox(height: 10),
-            Text("_____________________________________________________________",style: TextStyle(color: Colors.white),),
+            const Text("_____________________________________________________________",style: TextStyle(color: Colors.white),),
             const SizedBox(height: 15),
             Row(
               children: [
@@ -85,7 +87,7 @@ class _accountState extends State<account> {
 
             ),
             const SizedBox(height: 10),
-            Text("_____________________________________________________________",style: TextStyle(color: Colors.white),),
+            const Text("_____________________________________________________________",style: TextStyle(color: Colors.white),),
             const SizedBox(height: 15),
             Row(
               children: [
@@ -96,7 +98,7 @@ class _accountState extends State<account> {
               ],
             ),
             const SizedBox(height: 10),
-            Text("_____________________________________________________________",style: TextStyle(color: Colors.white),),
+            const Text("_____________________________________________________________",style: TextStyle(color: Colors.white),),
             const SizedBox(height: 30),
             Row(
               mainAxisAlignment:MainAxisAlignment.center,

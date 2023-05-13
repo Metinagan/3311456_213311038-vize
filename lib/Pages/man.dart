@@ -115,9 +115,6 @@ class _manState extends State<man> {
                 )
               ],
             ),
-
-
-
             const SizedBox(height: 20),
             Row( mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

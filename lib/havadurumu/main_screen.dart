@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:shopping/mainmen.dart';
 
 
+
+import '../Pages/mainmen.dart';
 import 'weather.dart';
 
 class MainScreen extends StatefulWidget {

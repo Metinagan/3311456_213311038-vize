@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:shopping/categories.dart';
+import 'package:shopping/Pages/categories.dart';
+
 
 import 'mainmen.dart';
 
