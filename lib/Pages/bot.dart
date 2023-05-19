@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
+import '../shared/custom_theme.dart';
 import 'women.dart';
 
 class bot extends StatefulWidget {
@@ -35,12 +36,7 @@ class _botState extends State<bot> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
-          decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [Colors.black,Colors.grey]
-              )),
+          decoration: theme(),
           child: SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),

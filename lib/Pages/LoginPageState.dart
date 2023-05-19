@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../shared/custom_theme.dart';
 import 'mainmen.dart';
 import 'signin.dart';
 import 'mainmen.dart';
@@ -27,12 +28,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [Colors.lightBlueAccent, Colors.grey, Colors.blueAccent]
-            )),
+        decoration: theme(),
         padding: const EdgeInsets.all(12),
         child: Form(
           key: _formkey,

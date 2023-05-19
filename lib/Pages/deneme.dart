@@ -1,6 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
+import '../functions/product.dart';
+
 class deneme extends StatefulWidget {
   const deneme({Key? key}) : super(key: key);
 
@@ -16,46 +18,18 @@ final List<String> imagelist=[
       'assets/images/jean/5.jpg',
       'assets/images/jean/6.jpg',
 ];
+const String featur="Ekran boyutu 24 inç\nEkran yenileme hızı 120 Hz\nEkran teknolojisi OLED\n20 W hızlı şarj\nApla A15 bionic\n128 GB depolama\nSuya ve toza dayanıklılık";
+    
 class _denemeState extends State<deneme> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Column(
+        child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              child: CarouselSlider.builder(
-                  options: CarouselOptions(
-                    enlargeCenterPage:true,
-                    height: 720,
-                    autoPlay: true,
-                    autoPlayInterval: const Duration(seconds: 1),
-                    reverse: false,
-                    aspectRatio: 5.0,
-                  ),
-                  itemCount: imagelist.length,
-                  itemBuilder: (context,i,id){
-                    return GestureDetector(
-                      child: Container(
-                        decoration:BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          border: Border.all(color: Colors.white),
-                        ),
-                        child: ClipRRect(borderRadius: BorderRadius.circular(15),
-                          child: Image.asset(
-                            imagelist[i],
-                            width:500 ,
-                            fit: BoxFit.cover,
-                          ),),
-                      ),
-                      onTap: (){
-                        var assets= imagelist[i];
-                      },
-                    );
-                  }),
-            ),
-          ],
+          Text(featur,textAlign: TextAlign.center,),
+        ]
         ),
       ),
     );

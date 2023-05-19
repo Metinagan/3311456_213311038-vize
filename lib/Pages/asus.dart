@@ -1,6 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:shopping/Pages/categories.dart';
+import 'package:shopping/functions/product.dart';
+import 'package:shopping/shared/custom_theme.dart';
 
 
 import 'mainmen.dart';
@@ -32,17 +34,25 @@ class _asusState extends State<asus> {
     'assets/images/monitors/r3.png',
     'assets/images/monitors/r4.png',
   ];
+  final List<String> features=[
+    "Ekran Özellikleri",
+    "Ekran boyutu 24 inç",
+    "Ekran yenileme hızı 120 Hz",
+    "Ekran teknolojisi OLED",
+    "Batarya Özellikleri",
+    "20 W hızlı şarj",
+    "Temel Donanım",
+    "Apla A15 bionic",
+    "128 GB depolama",
+    "Özellikler",
+    "Suya dayanıklılık",
+    "Toza dayanıklılık",
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
-
-          decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [Colors.black38,Colors.grey,Colors.white]
-              )),
+          decoration: theme(),
           child: SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -133,6 +143,7 @@ class _asusState extends State<asus> {
                   ),
                   Row(
 
+
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       IconButton(icon: const Icon(
@@ -149,9 +160,19 @@ class _asusState extends State<asus> {
                           }
                       ),
                       const SizedBox(width: 30),
-                      const Text("Sepete Ekle", style: TextStyle(fontSize: 20)),
                     ],
                   ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      GestureDetector(
+                        child: Container(
+                          child: Text('Sepete ekle'),
+                        ),
+                      ),
+                    ],
+                  ),
+
                   const SizedBox(height: 100),
                 ],
               ),

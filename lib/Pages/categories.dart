@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shopping/Pages/monitors.dart';
 
 
+import '../shared/custom_theme.dart';
 import 'mainmen.dart';
 import 'man.dart';
 import 'phones.dart';
@@ -19,13 +20,7 @@ class _categoriesState extends State<categories> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [Colors.grey,Colors.grey,Colors.white,Colors.grey,Colors.white,Colors.grey,Colors.grey]
-            ),
-        ),
+        decoration: theme(),
         child: ListView(
           children: [
             const SizedBox(height: 20),

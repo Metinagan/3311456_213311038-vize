@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:shopping/havadurumu/loading_screen.dart';
-import 'LoginPageState.dart';
+import '../shared/custom_theme.dart';
 import 'LoginPageState.dart';
 import 'account.dart';
 import 'apple.dart';
 import 'asus.dart';
 import 'categories.dart';
-import 'LoginPageState.dart';
+
 
 class mainmen extends StatefulWidget {
   const mainmen({Key? key}) : super(key: key);
@@ -23,12 +23,7 @@ class _mainmenState extends State<mainmen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [Colors.grey,Colors.white,Colors.grey]
-            )),
+        decoration: theme(),
         child: SafeArea(
           child: Column(
             crossAxisAlignment:CrossAxisAlignment.start,

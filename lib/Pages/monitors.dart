@@ -3,6 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:shopping/Pages/asus.dart';
 
 
+import '../shared/custom_theme.dart';
 import 'apple.dart';
 import 'categories.dart';
 
@@ -25,12 +26,7 @@ class _monitorsState extends State<monitors> {
     return Scaffold(
 
         body:Container(
-          decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [Colors.grey,Colors.grey,Colors.black]
-              )),
+          decoration: theme(),
           child: ListView(
             children: [
               Row(

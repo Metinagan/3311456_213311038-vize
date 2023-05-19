@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'LoginPageState.dart';
@@ -5,15 +6,19 @@ import 'LoginPageState.dart';
 class signin extends StatefulWidget {
   const signin({Key? key}) : super(key: key);
 
+
+
   @override
   State<signin> createState() => _signinState();
 }
-
-class _signinState extends State<signin> {
   late String name;
   late String surname;
   late String mail;
   late String paswd;
+
+class _signinState extends State<signin> {
+  
+  final firebaseauth=FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormState>();
@@ -27,80 +32,18 @@ class _signinState extends State<signin> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               //Ad
-              TextFormField(
-                decoration: const InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.blue),
-                    ),
-                    labelText: "İsim",
-                    labelStyle: TextStyle(color: Colors.black),
-                    border: OutlineInputBorder()),
-                validator: (value){
-                  if(value==null || value.isEmpty){
-                    return 'Doldurulması Zorunlu Alan';
-                  }return null;
-                },
-                onSaved: (value) {
-                 name = value!;
-                },
-              ),
+             username(),
               const SizedBox(height: 15),
               //Soyad
-              TextFormField(
-                decoration: const InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.blue),
-                    ),
-                    labelText: "Soyisim",
-                    labelStyle: TextStyle(color: Colors.black),
-                    border: OutlineInputBorder()),
-                validator: (value){
-                  if(value==null || value.isEmpty){
-                    return 'Doldurulması Zorunlu Alan';
-                  }return null;
-                },
-                onSaved: (value) {
-                  name = value!;
-                },
-              ),
+              usersurname(),
+              
               const SizedBox(height: 15),
               //e-posta
-              TextFormField(
-                decoration: const InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.blue),
-                    ),
-                    labelText: "E-posta",
-                    labelStyle: TextStyle(color: Colors.black),
-                    border: OutlineInputBorder()),
-                validator: (value){
-                  if(value==null || value.isEmpty){
-                    return 'Doldurulması Zorunlu Alan';
-                  }return null;
-                },
-                onSaved: (value) {
-                  name = value!;
-                },
-              ),
+              usermail(),
+              
               const SizedBox(height: 15),
               //şifre
-              TextFormField(
-                decoration: const InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.blue),
-                    ),
-                    labelText: "Şifre",
-                    labelStyle: TextStyle(color: Colors.black),
-                    border: OutlineInputBorder()),
-                validator: (value){
-                  if(value==null || value.isEmpty){
-                    return 'Doldurulması Zorunlu Alan';
-                  }return null;
-                },
-                onSaved: (value) {
-                  name = value!;
-                },
-              ),
+              userpassword(),
               const SizedBox(height: 15),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -115,11 +58,16 @@ class _signinState extends State<signin> {
 
                   MaterialButton(
                     child: const Text("Üye Ol"),
-                    onPressed: (){
+                    onPressed: () async {
                       if (_formKey.currentState!.validate()) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Üyeliğiniz Kabul Edildi')),
-                        );
+                        _formKey.currentState!.save();
+                        try{
+                          var userResult=await firebaseauth.createUserWithEmailAndPassword(
+                          email: mail, password: paswd);
+                          print(userResult.user!.uid);
+                        }catch(e){
+                          print(e.toString());
+                        }                          
                       }
                       else{
 
@@ -136,3 +84,83 @@ class _signinState extends State<signin> {
     );
   }
 }
+
+  TextFormField username(){
+    return TextFormField(
+       decoration: const InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue),
+                    ),
+                    labelText: "İsim",
+                    labelStyle: TextStyle(color: Colors.black),
+                    border: OutlineInputBorder()),
+                validator: (value){
+                  if(value==null || value.isEmpty){
+                    return 'Doldurulması Zorunlu Alan';
+                  }return null;
+                },
+                onSaved: (value) {
+                 name = value!;
+                },
+    );
+  }
+  TextFormField usersurname(){
+    return TextFormField(
+                decoration: const InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue),
+                    ),
+                    labelText: "Soyisim",
+                    labelStyle: TextStyle(color: Colors.black),
+                    border: OutlineInputBorder()),
+                validator: (value){
+                  if(value==null || value.isEmpty){
+                    return 'Doldurulması Zorunlu Alan';
+                  }return null;
+                },
+                onSaved: (value) {
+                  surname = value!;
+                },
+              );
+  }
+  TextFormField usermail(){
+    return TextFormField(
+                decoration: const InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue),
+                    ),
+                    labelText: "E-posta",
+                    labelStyle: TextStyle(color: Colors.black),
+                    border: OutlineInputBorder()),
+                validator: (value){
+                  if(value==null || value.isEmpty){
+                    return 'Doldurulması Zorunlu Alan';
+                  }return null;
+                },
+                onSaved: (value) {
+                  mail = value!;
+                },
+              );
+  }
+  TextFormField userpassword(){
+  return TextFormField(
+                obscureText: true,
+                decoration: const InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue),
+                    ),
+                    labelText: "Şifre",
+                    labelStyle: TextStyle(color: Colors.black),
+                    border: OutlineInputBorder()),
+                validator: (value){
+                  if(value==null || value.isEmpty){
+                    return 'Doldurulması Zorunlu Alan';
+                  }return null;
+                },
+                onSaved: (value) {
+                  paswd = value!;
+                },
+              );
+}
+
+

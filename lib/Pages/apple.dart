@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-
+import '../shared/custom_theme.dart';
 import 'mainmen.dart';
 
 class apple extends StatefulWidget {
@@ -35,13 +35,7 @@ class _appleState extends State<apple> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
-
-          decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [Colors.black38,Colors.grey,Colors.white]
-              )),
+          decoration: theme(),
           child: SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
+import '../shared/custom_theme.dart';
 import 'categories.dart';
 import 'jean.dart';
 import 'sweat.dart';
@@ -33,12 +34,7 @@ class _manState extends State<man> {
     return Scaffold(
 
       body:Container(
-        decoration: const BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [Colors.grey,Colors.grey,Colors.black]
-            )),
+        decoration: theme(),
         child: ListView(
           children: [
             Row(

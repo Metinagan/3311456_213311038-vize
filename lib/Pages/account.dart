@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:shopping/Pages/LoginPageState.dart';
 import 'package:shopping/Pages/mainmen.dart';
+import 'package:switcher_button/switcher_button.dart';
+import '../shared/custom_theme.dart';
 
-// ignore: camel_case_types
+
+bool themedata=true;
+gettheme(){
+  return themedata;
+}
+
 class account extends StatefulWidget {
   const account({Key? key}) : super(key: key);
-
   @override
   State<account> createState() => _accountState();
 }
@@ -14,18 +20,15 @@ class account extends StatefulWidget {
 class _accountState extends State<account> {
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body:Container(
-        decoration: const BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [Colors.black,Colors.grey]
-            )),
+        decoration: theme(),
         child: Column(
           children: [
             const SizedBox(height: 15),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Column(
                   children: [
@@ -47,6 +50,19 @@ class _accountState extends State<account> {
                       decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
                       child: const Text("Metin Ağan",style: TextStyle(fontSize: 40,color: Colors.white),),
                     ),
+                  ],
+                ),
+                Column(
+                  children: [
+                    SwitcherButton(
+                      value: themedata,
+                      onChange: (value) {
+                        //print(value);
+                        setState(() {
+                          themedata=value;
+                        });
+                      },
+                    )
                   ],
                 )
               ],
